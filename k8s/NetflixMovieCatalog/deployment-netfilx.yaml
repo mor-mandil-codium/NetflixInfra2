@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-netflix
+  labels:
+    app: nginx-netflix
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-netflix
+  template:
+    metadata:
+      labels:
+        app: nginx-netflix
+    spec:
+      containers:
+        - name: server
+          image: alonithuji/netflix-movie-catalog:0.0.1
+
